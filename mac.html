@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Report an issue</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script type="text/javascript" language="javascript">
+
+$(document).ready(function() {
+
+	function search(keyword, category, address, description, sr) {
+		
+		var url = 'https://meridiankessler.anvil.app/_/api/mac?q=' + keyword + '&category=' + category + '&description=' + description  + '&sr=' + sr  + '&address=' + address 
+		$.getJSON(url, function(t) {
+		var results = ''
+			for (f = 0; f < t.results.length; f++) {
+				results = results + '<em>Service Request number</em>: ' + t[f].sr + '<br/><em>Date opened</em>: ' + t[f].date_opened + '<br/><em>Address</em>: ' + t[f].address + '<br/><em>Category</em>: ' + t[f].category + '<br/><em>Subcategory</em>: ' + t[f].subcategory + '<br/><em>Description</em>:' + t[f].description + '<br/>' + 
+				}
+			$('#search').html('<p>' + results + '</p>')
+			
+		});
+	}
+	
+	$("#commit").click(function(event){
+		keyword = $('#keyword').val();
+		category = $('#category').val();
+		address = $('#address').val();
+		description = $('#description').val();
+		sr = $('#sr').val();
+		search(keyword, category, address, description, sr)
+	});
+})
+</script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<body>
+<div style="margin-left:5em;">
+
+<h3> Search </h3>
+<span id="search">
+<h5>Keyword</h5>
+<p><input type="text" name="keyword" id="keyword"></p>
+<h5>Category</h5>
+<p><input type="text" name="category" id="category"></p>
+<h5>Address</h5>
+<p><input type="text" name="address" id="address"></p>
+<h5>Description</h5>
+<p><input type="text" name="description" id="description"></p>
+<h5>MAC service request number</h5>
+<p><input type="text" name="sr" id="sr"></p>
+<input type="button" id="commit" value="Search" />
+</span>
+</div>
+
+</body>
+</html>
