@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$.getJSON(url, function(t) {
 		var results = ''
 			for (f = 0; f < t.results.length; f++) {
-				results = results + '<em>Service Request number</em>: ' + t[f].sr + '<br/><em>Date opened</em>: ' + t[f].date_opened + '<br/><em>Address</em>: ' + t[f].address + '<br/><em>Category</em>: ' + t[f].category + '<br/><em>Subcategory</em>: ' + t[f].subcategory + '<br/><em>Description</em>:' + t[f].description + '<br/>' + 
+				results = results + '<em>Service Request number</em>: ' + t[f].sr + '<br/><em>Date opened</em>: ' + t[f].date_opened + '<br/><em>Address</em>: ' + t[f].address + '<br/><em>Category</em>: ' + t[f].category + '<br/><em>Subcategory</em>: ' + t[f].subcategory + '<br/><em>Description</em>:' + t[f].description + '<br/>';
 				}
 			$('#search').html('<p>' + results + '</p>')
 			
