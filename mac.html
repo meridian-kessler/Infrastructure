@@ -16,7 +16,7 @@ $(document).ready(function() {
 			for (f = 0; f < t.results.length; f++) {
 				results = results + '<strong>' + t.results[f].sr + '</strong> (<a href="http://maps.indy.gov/RequestIndy/index.html?srnumber=' + t.results[f].sr + '">view</a>)<br/><em>Date opened</em>: ' + t.results[f].date_opened + '<br/><em>Address</em>: ' + t.results[f].address + '<br/><em>Category</em>: ' + t.results[f].category + '<br/><em>Subcategory</em>: ' + t.results[f].subcategory + '<br/><em>Description</em>:' + t.results[f].description + '<br/><br/>';
 				}
-			$('#search').html('<p>' + results + '</p>')
+			$('#search').html('<p>Found <strong>' + t.total + '</strong> open tickets in Meridian-Kessler.</p><p>' + results + '</p>')
 			
 		});
 	}
