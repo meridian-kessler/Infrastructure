@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$.getJSON(url, function(t) {
 		var results = ''
 			for (f = 0; f < t.results.length; f++) {
-				results = results + '<strong>' + t.results[f].sr + '</strong> (<a href="http://maps.indy.gov/RequestIndy/index.html?srnumber=' + t.results[f].sr + '">view</a>)<br/><em>Date opened</em>: &nbsp;' + t.results[f].date_opened + '<br/><em>Address</em>: &ensp;&ensp;&ensp;&ensp;' + t.results[f].address + '<br/><em>Category</em>: &ensp;&ensp;&ensp;' + t.results[f].category + '<br/><em>Subcategory</em>: &nbsp;' + t.results[f].subcategory + '<br/><em>Description</em>: &ensp;&nbsp;' + t.results[f].description + '<br/><br/>';
+				results = results + '<span style="background-color:#ff4d4d;"><strong>' + t.results[f].sr + '</strong> (<a href="http://maps.indy.gov/RequestIndy/index.html?srnumber=' + t.results[f].sr + '">view</a>)<br/><em>Date opened</em>: &nbsp;' + t.results[f].date_opened + '<br/><em>Address</em>: &ensp;&ensp;&ensp;&ensp;' + t.results[f].address + '<br/><em>Category</em>: &ensp;&ensp;&ensp;' + t.results[f].category + '<br/><em>Subcategory</em>: &nbsp;' + t.results[f].subcategory + '<br/><em>Description</em>: &ensp;&nbsp;' + t.results[f].description + '</span><br/><br/>';
 				}
 			$('#search').html('<p>Found <strong>' + t.total + '</strong> open tickets in Meridian-Kessler.</p><p>' + results + '</p>')
 			
